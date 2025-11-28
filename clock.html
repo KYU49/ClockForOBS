@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+	<style>
+		body{
+			text-align: center;
+			font-family: "Noto Sans", "メイリオ", "Arial";
+			font-weight: 300;
+			padding: 0;
+		}
+		#timeContainer {
+			border-bottom: 3px #69032d solid;
+			padding: 0 10px 1px 10px;
+			color: #610028;
+		}
+		#hour {
+			font-size: larger;
+		}
+		#sep3 {
+			font-size: larger;
+		}
+		#min {
+			font-size: larger;
+		}
+		#sec {
+			font-size: smaller;
+		}
+		#dateContainer {
+			font-weight: 500;
+			font-size: smaller;
+			color: #a7758a;
+		}
+		.smaller{
+			font-size: smaller;
+		}
+
+
+	</style>
+</head>
+<body>
+	<span id="timeContainer">
+		<span id = "hour"></span><span id = "sep3">:</span><span id = "min"></span> <span id = "sec"></span>
+	</span>
+	<br>
+	<span id="dateContainer"><section class="smaller">
+		<span id = "year"></span><span id = "sep1">/</span><span id = "month"></span><span id = "sep2">/</span><span id = "day"></span>
+	</section></span>
+    <script>
+		setInterval(_ => {
+			const d = new Date(),f = n => n.toString().padStart(2,0);
+			year.textContent = d.getFullYear();
+			month.textContent = f(d.getMonth() + 1);
+			day.textContent = f(d.getDate());
+			hour.textContent = f(d.getHours());
+			min.textContent = f(d.getMinutes());
+			sec.textContent = f(d.getSeconds());
+		}, 200);
+	</script>
+</body>
+</html>
